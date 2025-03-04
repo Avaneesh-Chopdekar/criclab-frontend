@@ -1,1 +1,21 @@
-<h1 class="text-3xl text-blue-500">CricLab Frontend</h1>
+<header>
+    <nav class="bg-blue-500 p-4">
+        <div class="container mx-auto flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a routerLink="/home" class="text-white text-lg font-semibold cursor-pointer">
+                CricLab
+            </a>
+
+            <!-- Navigation Menus -->
+            <div class="flex space-x-4">
+                <a routerLink="/home" class="text-white cursor-pointer">Home</a>
+                <a routerLink="/live" class="text-white cursor-pointer">Live Score</a>
+                <a routerLink="/history" class="text-white cursor-pointer">Matches History</a>
+                <a routerLink="/point-table" class="text-white cursor-pointer">ICT 2025 Point Table</a>
+            </div>
+            <div></div>
+        </div>
+    </nav>
+</header>
+<router-outlet></router-outlet>
+<footer>Footer</footer>
