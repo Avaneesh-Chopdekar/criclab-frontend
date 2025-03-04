@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from '../../environments/environment.development';
 
 @Injectable({
   providedIn: 'root',
@@ -7,9 +8,15 @@ import { Injectable } from '@angular/core';
 export class ApiCallService {
   constructor(private _httpClient: HttpClient) {}
 
-  getAllMatches() {}
+  getAllMatches() {
+    return this._httpClient.get(`${environment.API_URL}/matches`);
+  }
 
-  getLiveMatches() {}
+  getLiveMatches() {
+    return this._httpClient.get(`${environment.API_URL}/matches/live`);
+  }
 
-  getPointTable() {}
+  getPointTable() {
+    return this._httpClient.get(`${environment.API_URL}/matches/point-table`);
+  }
 }
