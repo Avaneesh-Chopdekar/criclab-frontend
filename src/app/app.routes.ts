@@ -13,18 +13,22 @@ export const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
+    title: 'Home - CricLab',
   },
   {
     path: 'live',
     component: LiveComponent,
+    title: 'Live Score - CricLab',
   },
   {
     path: 'history',
     component: HistoryComponent,
+    title: 'Match History - CricLab',
   },
   {
     path: 'point-table',
     component: PointTableComponent,
+    title: 'Point Table - CricLab',
   },
   {
     path: '**',
