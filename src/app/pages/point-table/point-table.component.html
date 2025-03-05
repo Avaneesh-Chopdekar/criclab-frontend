@@ -1,1 +1,54 @@
-<p>point-table works!</p>
+<div id="table-container">
+  <h1 class="text-4xl font-bold mb-8">ICT 2025 Point Table</h1>
+
+  <div class="container mx-auto space-y-8 overflow-x-auto">
+    <!-- Group B Table -->
+    <table class="w-full border-collapse border border-gray-300 rounded-lg shadow-md">
+      <thead class="bg-gray-200">
+        <tr>
+          @for (column of groupBTable[0].slice(0, -1); track $index) {
+          <th class="p-2 border border-gray-300">{{ column }}</th>
+          }
+        </tr>
+      </thead>
+      <tbody>
+        @for (team of groupBTable.slice(1); track $index) {
+        <tr
+          class="hover:scale-105 transition-all {{ team[0].includes('(Q)') ? 'bg-green-100 hover:bg-green-200' : '' }} {{ team[0].includes('(E)') ? 'bg-red-100 hover:bg-red-200' : '' }}">
+          @for (value of team.slice(0, -1); track $index) {
+          <td class="p-2 border border-gray-300 text-center font-{{ $index === 6 ? 'bold' : 'normal' }}">
+            {{ value }}
+          </td>
+          }
+        </tr>
+        }
+      </tbody>
+    </table>
+
+    <!-- Group A Table -->
+    <table class="w-full border-collapse border border-gray-300 rounded-lg shadow-md">
+      <thead class="bg-gray-200">
+        <tr>
+          @for (column of groupATable[0].slice(0, -1); track $index) {
+          <th class="p-2 border border-gray-300">{{ column }}</th>
+          }
+        </tr>
+      </thead>
+      <tbody>
+        @for (team of groupATable.slice(1); track $index) {
+        <tr
+          class="hover:scale-105 transition-all {{ team[0].includes('(Q)') ? 'bg-green-100 hover:bg-green-200' : '' }} {{ team[0].includes('(E)') ? 'bg-red-100 hover:bg-red-200' : '' }}">
+          @for (value of team.slice(0, -1); track $index) {
+          <td class="p-2 border border-gray-300 text-center font-{{ $index === 6 ? 'bold' : 'normal' }}">
+            {{ value }}
+          </td>
+          }
+        </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+
+
+
+</div>
