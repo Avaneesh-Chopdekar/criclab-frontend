@@ -29,4 +29,8 @@ export class LiveComponent implements OnInit {
       },
     });
   }
+
+  refreshScore() {
+    this.loadLiveMatches();
+  }
 }
