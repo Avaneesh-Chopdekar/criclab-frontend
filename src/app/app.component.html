@@ -1,21 +1,5 @@
 <header>
-    <nav class="bg-blue-500 p-4">
-        <div class="container mx-auto flex items-center justify-between">
-            <!-- Brand Logo -->
-            <a routerLink="/home" class="text-white text-lg font-semibold cursor-pointer">
-                CricLab
-            </a>
-
-            <!-- Navigation Menus -->
-            <div class="flex space-x-4">
-                <a routerLink="/home" class="text-white cursor-pointer">Home</a>
-                <a routerLink="/live" class="text-white cursor-pointer">Live Score</a>
-                <a routerLink="/history" class="text-white cursor-pointer">Matches History</a>
-                <a routerLink="/point-table" class="text-white cursor-pointer">ICT 2025 Point Table</a>
-            </div>
-            <div></div>
-        </div>
-    </nav>
+    <app-navbar></app-navbar>
 </header>
 <div class="px-4 py-8 sm:container mx-auto">
     <router-outlet></router-outlet>

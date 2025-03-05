@@ -1,0 +1,33 @@
+<nav class="bg-blue-600 text-white p-4">
+    <div class="container mx-auto flex justify-between items-center">
+
+        <!-- Logo -->
+        <a href="#" class="text-xl font-bold">CricLab</a>
+
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex space-x-6">
+            <a routerLink="/" class="hover:text-gray-200">Home</a>
+            <a routerLink="/live" class="hover:text-gray-200">Live Score</a>
+            <a routerLink="/history" class="hover:text-gray-200">Match History</a>
+            <a routerLink="/point-table" class="hover:text-gray-200">ICT 2025 Point Table</a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button (click)="toggleMenu()" class="md:hidden focus:outline-none cursor-pointer">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+        </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    @if (isMenuOpen) {
+    <div class="md:hidden mt-6 flex flex-col gap-3">
+        <a routerLink="/" class="hover:text-gray-200">Home</a>
+        <a routerLink="/live" class="hover:text-gray-200">Live Score</a>
+        <a routerLink="/history" class="hover:text-gray-200">Match History</a>
+        <a routerLink="/point-table" class="hover:text-gray-200">ICT 2025 Point Table</a>
+    </div>
+    }
+</nav>
