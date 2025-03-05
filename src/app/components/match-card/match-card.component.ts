@@ -10,4 +10,7 @@ import { MatchSummary } from '../../models/match-summary.model';
 export class MatchCardComponent {
   @Input()
   match!: MatchSummary;
+
+  @Input()
+  loading: boolean = false;
 }
