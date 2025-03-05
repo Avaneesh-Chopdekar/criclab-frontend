@@ -11,6 +11,7 @@ import { debounceTime, Subject } from 'rxjs';
   styleUrl: './history.component.css',
 })
 export class HistoryComponent implements OnInit {
+  loading = false;
   matches: MatchSummary[] = [];
   filteredMatches: MatchSummary[] = [];
   searchTerm = new Subject<string>(); // RxJS Subject for debouncing
@@ -18,13 +19,16 @@ export class HistoryComponent implements OnInit {
   constructor(private _api: ApiCallService) {}
 
   ngOnInit() {
+    this.loading = true;
     this._api.getAllMatches().subscribe({
       next: (data: any) => {
         this.matches = data as MatchSummary[];
         this.filteredMatches = this.matches;
+        this.loading = false;
       },
       error: (err) => {
         console.log('Error fetching data', err);
+        this.loading = false;
       },
     });
 
