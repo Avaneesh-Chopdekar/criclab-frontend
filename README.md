@@ -1,59 +1,87 @@
-# Frontend
+# 🏏 CricLab - Frontend
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.7.
+This is the **frontend** of the CricLab web application, built with **Angular 19** and **Tailwind CSS**. The app provides **live scores, match history, and the points table** for ICC 2025.
 
-## Development server
+---
 
-To start a local development server, run:
+## 🚀 Tech Stack
 
-```bash
+- **Frontend:** Angular 19, TypeScript, Tailwind CSS
+- **State Management:** RxJS, Signals
+- **API Integration:** Angular `HttpClient` with `fetch`
+- **Routing:** Angular Router
+- **Styling:** Tailwind CSS, Responsive Design
+- **Performance:** Lazy Loading, Debounced Search
+
+---
+
+## ✨ Features
+
+✅ **Live Scores** – Real-time cricket match updates  
+✅ **Matches History** – View previous match results  
+✅ **Points Table** – Displays ICC 2025 standings  
+✅ **Search with Debounce** – Efficient match search in history  
+✅ **Responsive UI** – Mobile-friendly design with Tailwind CSS  
+✅ **Optimized API Calls** – Uses `fetch` for better performance
+
+---
+
+## 🛠️ Installation and Running the Project
+
+### **1️⃣ Prerequisites**
+
+- **Node.js** (v18+ recommended)
+- **Angular CLI** (`npm install -g @angular/cli`)
+- **Git** (for version control)
+
+### **2️⃣ Clone the Repository**
+
+```sh
+git clone https://github.com/Avaneesh-Chopdekar/criclab-frontend.git
+cd criclab-frontend
+```
+
+### **3️⃣ Install Dependencies**
+
+```sh
+npm install
+```
+
+### **4️⃣ Run the Development Server**
+
+```sh
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+The app will be available at **`http://localhost:4200/`**.
 
-## Code scaffolding
+### **5️⃣ Build for Production**
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
+```sh
 ng build
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+This will generate optimized production files in the `dist/` folder.
 
-## Running unit tests
+---
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+## 🤝 Contributing
 
-```bash
-ng test
-```
+We welcome contributions! To contribute:
 
-## Running end-to-end tests
+1. **Fork** the repository.
+2. **Create** a new branch (`git checkout -b feature-name`).
+3. **Commit** changes (`git commit -m "Added a new feature"`).
+4. **Push** the branch (`git push origin feature-name`).
+5. **Create a Pull Request** 🚀.
 
-For end-to-end (e2e) testing, run:
+---
 
-```bash
-ng e2e
-```
+## 📜 License
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+This project is licensed under the **MIT License**.  
+Feel free to use, modify, and distribute. 🏏
 
-## Additional Resources
+---
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Made with ❤️ by [Avaneesh Chopdekar](https://github.com/Avaneesh-Chopdekar)
