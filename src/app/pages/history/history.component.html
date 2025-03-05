@@ -1,1 +1,15 @@
-<p>history works!</p>
+<div class="">
+    <h1 class="text-4xl font-bold mb-8">Matches History</h1>
+
+    <div id="card-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+        @for(match of matches; track $index) {
+        <div>
+            <app-match-card [match]="match"></app-match-card>
+        </div>
+        }
+        @empty {
+        <p>No matches found</p>
+        }
+    </div>
+
+</div>
