@@ -13,19 +13,23 @@ export class LiveComponent implements OnInit {
   constructor(private _api: ApiCallService) {}
 
   matches: MatchSummary[] = [];
+  loading = false;
 
   ngOnInit(): void {
     this.loadLiveMatches();
   }
 
   private loadLiveMatches() {
+    this.loading = true;
     this._api.getLiveMatches().subscribe({
       next: (data: any) => {
         // console.log(data);
         this.matches = data;
+        this.loading = false;
       },
       error: (error) => {
         console.log(error);
+        this.loading = false;
       },
     });
   }
