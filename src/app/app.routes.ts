@@ -26,9 +26,9 @@ export const routes: Routes = [
     title: 'Match History - CricLab',
   },
   {
-    path: 'point-table',
+    path: 'points-table',
     component: PointTableComponent,
-    title: 'Point Table - CricLab',
+    title: 'Points Table - CricLab',
   },
   {
     path: '**',
