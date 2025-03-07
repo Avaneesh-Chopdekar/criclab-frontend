@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiCallService } from '../../services/api-call.service';
+import { MatchService } from '../../services/match.service';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -12,7 +12,7 @@ export class PointTableComponent implements OnInit {
   groupBTable: Array<Array<string>> = [];
   groupATable: Array<Array<string>> = [];
 
-  constructor(private _api: ApiCallService) {}
+  constructor(private _api: MatchService) {}
 
   ngOnInit(): void {
     this._api.getPointTable().subscribe({

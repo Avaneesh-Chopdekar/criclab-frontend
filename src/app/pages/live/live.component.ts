@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiCallService } from '../../services/api-call.service';
+import { MatchService } from '../../services/match.service';
 import { MatchSummary } from '../../models/match-summary.model';
 import { MatchCardComponent } from '../../components/match-card/match-card.component';
 
@@ -10,7 +10,7 @@ import { MatchCardComponent } from '../../components/match-card/match-card.compo
   styleUrl: './live.component.css',
 })
 export class LiveComponent implements OnInit {
-  constructor(private _api: ApiCallService) {}
+  constructor(private _api: MatchService) {}
 
   matches: MatchSummary[] = [];
   loading = false;

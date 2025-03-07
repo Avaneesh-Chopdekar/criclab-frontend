@@ -5,7 +5,7 @@ import { environment } from '../../environments/environment.development';
 @Injectable({
   providedIn: 'root',
 })
-export class ApiCallService {
+export class MatchService {
   constructor(private _httpClient: HttpClient) {}
 
   /**
