@@ -11,6 +11,7 @@ This is the **frontend** of the CricLab web application, built with **Angular 19
 - **API Integration:** Angular `HttpClient` with `fetch`
 - **Routing:** Angular Router
 - **Styling:** Tailwind CSS, Responsive Design
+- **Authentication:** JWT-based auth with access and refresh tokens
 - **Performance:** Lazy Loading, Debounced Search
 
 ---
@@ -22,7 +23,51 @@ This is the **frontend** of the CricLab web application, built with **Angular 19
 ✅ **Points Table** – Displays ICC 2025 standings  
 ✅ **Search with Debounce** – Efficient match search in history  
 ✅ **Responsive UI** – Mobile-friendly design with Tailwind CSS  
-✅ **Optimized API Calls** – Uses `fetch` for better performance
+✅ **Optimized API Calls** – Uses `fetch` for better performance  
+✅ **Admin Match Management** – Admins can soft or hard delete matches  
+✅ **JWT Authentication** – Secures admin routes with token handling
+
+---
+
+## 🔐 Authentication System
+
+### **1️⃣ Login**
+
+- Admins must log in to manage matches.
+- Login request:
+
+```ts
+this.http.post("/api/v1/auth/login", {
+  email: "admin@example.com",
+  password: "password123",
+});
+```
+
+### **2️⃣ Token Management**
+
+- **`accessToken`** stored securely in local storage for requests.
+- **`refreshToken`** stored securely in local storage for refresh logic.
+- Angular **HTTP Interceptor** automatically appends the `accessToken` to protected requests.
+
+### **3️⃣ Refresh Token Flow**
+
+- When the `accessToken` expires, the interceptor automatically refreshes the token.
+
+---
+
+## 🗑️ Admin Match Management (Soft & Hard Delete)
+
+### **Soft Delete Match**
+
+- **Endpoint:** `DELETE /api/v1/matches/{id}/soft-delete`
+- **Authorization:** Requires `Bearer` token for admin access
+- **Effect:** Marks the match as deleted without permanent removal
+
+### **Hard Delete Match**
+
+- **Endpoint:** `DELETE /api/v1/matches/{id}/delete`
+- **Authorization:** Requires `Bearer` token for admin access
+- **Effect:** Permanently removes the match from the database
 
 ---
 
