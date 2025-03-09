@@ -23,10 +23,12 @@ export class MatchCardComponent {
   hideMatch(id: number) {
     this._api.softDelete(id).subscribe({
       next: () => {
-        console.log('Match hidden with id:' + id);
+        console.log('Match soft deleted with id:' + id);
+        alert('Match hidden, Press Refresh to update changes');
       },
       error: (err) => {
         console.log(err);
+        alert('Error hiding match');
       },
     });
   }
@@ -34,9 +36,11 @@ export class MatchCardComponent {
     this._api.hardDelete(id).subscribe({
       next: () => {
         console.log('Match deleted with id:' + id);
+        alert('Match deleted, Press Refresh to update changes');
       },
       error: (err) => {
         console.log(err);
+        alert('Error deleting match');
       },
     });
   }

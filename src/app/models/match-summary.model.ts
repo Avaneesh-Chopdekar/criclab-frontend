@@ -11,6 +11,7 @@ export interface MatchSummary {
   textComplete: string;
   status: MatchStatus;
   date: Date;
+  deletedAt?: Date | null;
 }
 
 export enum MatchStatus {

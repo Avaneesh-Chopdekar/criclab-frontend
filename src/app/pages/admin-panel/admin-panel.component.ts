@@ -3,7 +3,6 @@ import { MatchSummary } from '../../models/match-summary.model';
 import { debounceTime, Subject } from 'rxjs';
 import { MatchService } from '../../services/match.service';
 import { MatchCardComponent } from '../../components/match-card/match-card.component';
-import { TokenService } from '../../services/token.service';
 
 @Component({
   selector: 'app-admin-panel',
