@@ -14,7 +14,7 @@ export class MatchService {
    * @returns An HTTP request observable that resolves to a list of match summaries.
    */
   getAllMatches() {
-    return this._httpClient.get(`${environment.API_URL}/matches`);
+    return this._httpClient.get(`${environment.API_URL}/matches/active`);
   }
 
   /**
