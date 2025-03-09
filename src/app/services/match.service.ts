@@ -9,12 +9,21 @@ export class MatchService {
   constructor(private _httpClient: HttpClient) {}
 
   /**
+   * Retrieves a list of all active matches from the API.
+   *
+   * @returns An HTTP request observable that resolves to a list of match summaries.
+   */
+  getAllActiveMatches() {
+    return this._httpClient.get(`${environment.API_URL}/matches/active`);
+  }
+
+  /**
    * Retrieves a list of all matches from the API.
    *
    * @returns An HTTP request observable that resolves to a list of match summaries.
    */
   getAllMatches() {
-    return this._httpClient.get(`${environment.API_URL}/matches/active`);
+    return this._httpClient.get(`${environment.API_URL}/matches`);
   }
 
   /**

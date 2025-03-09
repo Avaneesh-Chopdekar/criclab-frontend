@@ -20,7 +20,7 @@ export class HistoryComponent implements OnInit {
 
   ngOnInit() {
     this.loading = true;
-    this._api.getAllMatches().subscribe({
+    this._api.getAllActiveMatches().subscribe({
       next: (data: any) => {
         this.matches = data as MatchSummary[];
         this.filteredMatches = this.matches;
