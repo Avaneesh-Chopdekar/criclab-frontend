@@ -3,16 +3,12 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, tap } from 'rxjs';
 import { environment } from '../../environments/environment.development';
 
-interface AuthRequest {
+export interface AuthRequest {
   email: string;
   password: string;
 }
 
-interface RefreshTokenRequest {
-  refreshToken: string;
-}
-
-interface AuthResponse {
+export interface AuthResponse {
   accessToken: string;
   refreshToken: string;
 }
@@ -52,14 +48,43 @@ export class AuthService {
       );
   }
 
-  logout(credentials: RefreshTokenRequest) {
-    return this._http.post(`${this.apiUrl}/logout`, credentials).pipe(
-      tap(() => {
-        localStorage.removeItem('accessToken');
-        localStorage.removeItem('refreshToken');
-        this.authStatus.next(false);
-      })
-    );
+  logout() {
+    return this._http
+      .post(
+        `${this.apiUrl}/logout`,
+        {},
+        {
+          headers: {
+            Authorization: 'Bearer ' + localStorage.getItem('accessToken'),
+          },
+        }
+      )
+      .pipe(
+        tap(() => {
+          localStorage.removeItem('accessToken');
+          localStorage.removeItem('refreshToken');
+          this.authStatus.next(false);
+        })
+      );
+  }
+
+  refreshToken() {
+    return this._http
+      .post<AuthResponse>(
+        `${this.apiUrl}/refresh-token`,
+        {},
+        {
+          headers: {
+            Authorization: 'Bearer ' + localStorage.getItem('accessToken'),
+          },
+        }
+      )
+      .pipe(
+        tap(({ accessToken, refreshToken }) => {
+          localStorage.setItem('accessToken', accessToken);
+          localStorage.setItem('refreshToken', refreshToken);
+        })
+      );
   }
 
   isAuthenticated() {
