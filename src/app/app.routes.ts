@@ -6,6 +6,7 @@ import { PointTableComponent } from './pages/point-table/point-table.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { AdminPanelComponent } from './pages/admin-panel/admin-panel.component';
+import { AuthGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
   {
@@ -47,6 +48,7 @@ export const routes: Routes = [
     path: 'admin-panel',
     component: AdminPanelComponent,
     title: 'Admin Panel - CricLab',
+    canActivate: [AuthGuard], // Apply authentication guard
   },
   {
     path: '**',
