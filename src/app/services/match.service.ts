@@ -43,4 +43,16 @@ export class MatchService {
   getPointTable() {
     return this._httpClient.get(`${environment.API_URL}/matches/point-table`);
   }
+
+  softDelete(id: number) {
+    return this._httpClient.delete(
+      `${environment.API_URL}/matches/${id}/soft-delete`
+    );
+  }
+
+  hardDelete(id: number) {
+    return this._httpClient.delete(
+      `${environment.API_URL}/matches/${id}/delete`
+    );
+  }
 }
