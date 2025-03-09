@@ -1,1 +1,30 @@
-<p>admin-panel works!</p>
+<div class="">
+    <div class="flex flex-col md:flex-row items-center justify-between mb-8">
+        <h1 class="text-4xl font-bold mb-4">Admin Panel</h1>
+        <button (click)="refreshScore()"
+            class="py-2 px-4 bg-blue-500 hover:bg-blue-700 cursor-pointer rounded-md text-white">Refresh</button>
+    </div>
+
+    <input type="text" placeholder="Search matches..." class="w-full p-2 border border-gray-300 rounded-md mb-4"
+        (input)="onSearch($event)" />
+
+    @if (loading) {
+    <div id="card-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+        @for (i of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; track $index) {
+        <app-match-card [loading]="true"></app-match-card>
+        }
+    </div>
+    }
+    @else {
+    <div id="card-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+        @for(match of filteredMatches; track $index) {
+        <div>
+            <app-match-card [match]="match" [controls]="true"></app-match-card>
+        </div>
+        }
+        @empty {
+        <p>No matches found</p>
+        }
+    </div>
+    }
+</div>
