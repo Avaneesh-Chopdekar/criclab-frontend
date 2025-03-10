@@ -2,6 +2,8 @@
 
 This is the **frontend** of the CricLab web application, built with **Angular 19** and **Tailwind CSS**. The app provides **live scores, match history, and the points table** for ICC 2025.
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/TVkFZL7rLao?si=sd_QPb-cYwin2Q3d" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 ---
 
 ## 🚀 Tech Stack
