@@ -1,3 +1,4 @@
 export const environment = {
-  API_URL: 'https://criclab-backend.onrender.com/api/v1',
+  production: true,
+  API_URL: 'http://localhost:8080/api/v1',
 };
