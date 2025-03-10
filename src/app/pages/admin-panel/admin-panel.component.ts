@@ -3,6 +3,8 @@ import { MatchSummary } from '../../models/match-summary.model';
 import { debounceTime, Subject } from 'rxjs';
 import { MatchService } from '../../services/match.service';
 import { MatchCardComponent } from '../../components/match-card/match-card.component';
+import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-panel',
@@ -16,7 +18,11 @@ export class AdminPanelComponent implements OnInit {
   filteredMatches: MatchSummary[] = [];
   searchTerm = new Subject<string>();
 
-  constructor(private _api: MatchService) {}
+  constructor(
+    private _api: MatchService,
+    private _auth: AuthService,
+    private _router: Router
+  ) {}
 
   ngOnInit(): void {
     this.loadMatches();
@@ -31,6 +37,17 @@ export class AdminPanelComponent implements OnInit {
 
     this.searchTerm.pipe(debounceTime(1000)).subscribe((term) => {
       this.filterMatches(term);
+    });
+  }
+
+  logout() {
+    this._auth.logout().subscribe({
+      next: () => {
+        this._router.navigate(['/home']);
+      },
+      error: (err) => {
+        console.log(err);
+      },
     });
   }
 
