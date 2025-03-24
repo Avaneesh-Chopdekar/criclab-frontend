@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatchService } from '../../services/match.service';
 import { MatchSummary } from '../../models/match-summary.model';
 import { MatchCardComponent } from '../../components/match-card/match-card.component';
+import { interval } from 'rxjs';
 
 @Component({
   selector: 'app-live',
@@ -16,11 +17,17 @@ export class LiveComponent implements OnInit {
   loading = false;
 
   ngOnInit(): void {
+    this.loading = true;
     this.loadLiveMatches();
+
+    this.refreshLiveMatches();
+  }
+
+  private refreshLiveMatches() {
+    interval(5000).subscribe(() => this.loadLiveMatches());
   }
 
   private loadLiveMatches() {
-    this.loading = true;
     this._api.getLiveMatches().subscribe({
       next: (data: any) => {
         // console.log(data);
@@ -35,6 +42,7 @@ export class LiveComponent implements OnInit {
   }
 
   refreshScore() {
+    this.loading = true;
     this.loadLiveMatches();
   }
 }
