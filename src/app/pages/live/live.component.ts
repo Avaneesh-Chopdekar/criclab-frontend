@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { MatchService } from '../../services/match.service';
 import { MatchSummary } from '../../models/match-summary.model';
 import { MatchCardComponent } from '../../components/match-card/match-card.component';
-import { interval } from 'rxjs';
 
 @Component({
   selector: 'app-live',
@@ -15,16 +14,23 @@ export class LiveComponent implements OnInit {
 
   matches: MatchSummary[] = [];
   loading = false;
+  private intervalId: any;
 
   ngOnInit(): void {
     this.loading = true;
     this.loadLiveMatches();
 
-    this.refreshLiveMatches();
+    // Poll every 5 seconds (5000 ms)
+    this.intervalId = setInterval(() => {
+      this.loadLiveMatches();
+    }, 5000);
   }
 
-  private refreshLiveMatches() {
-    interval(5000).subscribe(() => this.loadLiveMatches());
+  ngOnDestroy(): void {
+    // Clear the interval to avoid memory leaks
+    if (this.intervalId) {
+      clearInterval(this.intervalId);
+    }
   }
 
   private loadLiveMatches() {
