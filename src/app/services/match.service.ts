@@ -36,13 +36,26 @@ export class MatchService {
   }
 
   /**
-   * Retrieves the points table for all teams in the tournament.
+   * Retrieves the points table for all teams in the ICT tournament.
+   * ICT stands for ICC Champions Trophy.
    *
    * @returns An HTTP request observable that resolves to a list of team standings.
    */
-  getPointTable() {
+  getICTPointTable() {
     return this._httpClient.get(
       `${environment.API_URL}/matches/ict-point-table`
+    );
+  }
+
+  /**
+   * Retrieves the points table for all teams in the IPL tournament.
+   * IPL stands for Indian Premier League.
+   *
+   * @returns An HTTP request observable that resolves to a list of team standings.
+   */
+  getIPLPointTable() {
+    return this._httpClient.get(
+      `${environment.API_URL}/matches/ipl-point-table`
     );
   }
 

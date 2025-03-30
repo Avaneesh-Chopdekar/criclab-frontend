@@ -15,7 +15,7 @@ export class IctPointTableComponent {
   constructor(private _api: MatchService) {}
 
   ngOnInit(): void {
-    this._api.getPointTable().subscribe({
+    this._api.getICTPointTable().subscribe({
       next: (data: any) => {
         // console.log(data);
         this.groupBTable = data.slice(0, 5);

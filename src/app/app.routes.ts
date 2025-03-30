@@ -5,8 +5,9 @@ import { HistoryComponent } from './pages/history/history.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { AdminPanelComponent } from './pages/admin-panel/admin-panel.component';
-import { AuthGuard } from './guards/auth.guard';
 import { IctPointTableComponent } from './pages/ict-point-table/ict-point-table.component';
+import { IplPointTableComponent } from './pages/ipl-point-table/ipl-point-table.component';
+import { AuthGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
   {
@@ -33,6 +34,11 @@ export const routes: Routes = [
     path: 'ict-points-table',
     component: IctPointTableComponent,
     title: 'ICT Points Table - CricLab',
+  },
+  {
+    path: 'ipl-points-table',
+    component: IplPointTableComponent,
+    title: 'IPL Points Table - CricLab',
   },
   {
     path: 'login',

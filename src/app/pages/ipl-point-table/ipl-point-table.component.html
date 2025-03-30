@@ -1,0 +1,26 @@
+<div id="table-container">
+    <h1 class="text-4xl font-bold mb-8">IPL 2025 Points Table</h1>
+
+    <div class="container mx-auto space-y-8 overflow-x-auto">
+        <table class="w-full border-collapse border border-gray-300 rounded-lg shadow-md">
+            <thead class="bg-gray-200">
+                <tr>
+                    @for (column of pointTable[0].slice(0, -1); track $index) {
+                    <th class="p-2 border border-gray-300">{{ column }}</th>
+                    }
+                </tr>
+            </thead>
+            <tbody>
+                @for (team of pointTable.slice(1); track $index) {
+                <tr class="hover:scale-105 transition-all">
+                    @for (value of team.slice(0, -1); track $index) {
+                    <td class="p-2 border border-gray-300 text-center font-{{ $index === 6 ? 'bold' : 'normal' }}">
+                        {{ value }}
+                    </td>
+                    }
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
