@@ -20,10 +20,10 @@ export class LiveComponent implements OnInit {
     this.loading = true;
     this.loadLiveMatches();
 
-    // Poll every 5 seconds (5000 ms)
+    // Poll every 10 seconds
     this.intervalId = setInterval(() => {
       this.loadLiveMatches();
-    }, 5000);
+    }, 10000);
   }
 
   ngOnDestroy(): void {
