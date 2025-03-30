@@ -3,12 +3,12 @@ import { MatchService } from '../../services/match.service';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-point-table',
+  selector: 'app-ict-point-table',
   imports: [CommonModule],
-  templateUrl: './point-table.component.html',
-  styleUrl: './point-table.component.css',
+  templateUrl: './ict-point-table.component.html',
+  styleUrl: './ict-point-table.component.css',
 })
-export class PointTableComponent implements OnInit {
+export class IctPointTableComponent {
   groupBTable: Array<Array<string>> = [];
   groupATable: Array<Array<string>> = [];
 

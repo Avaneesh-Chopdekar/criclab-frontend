@@ -2,11 +2,11 @@ import { Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { LiveComponent } from './pages/live/live.component';
 import { HistoryComponent } from './pages/history/history.component';
-import { PointTableComponent } from './pages/point-table/point-table.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { AdminPanelComponent } from './pages/admin-panel/admin-panel.component';
 import { AuthGuard } from './guards/auth.guard';
+import { IctPointTableComponent } from './pages/ict-point-table/ict-point-table.component';
 
 export const routes: Routes = [
   {
@@ -30,9 +30,9 @@ export const routes: Routes = [
     title: 'Match History - CricLab',
   },
   {
-    path: 'points-table',
-    component: PointTableComponent,
-    title: 'Points Table - CricLab',
+    path: 'ict-points-table',
+    component: IctPointTableComponent,
+    title: 'ICT Points Table - CricLab',
   },
   {
     path: 'login',

@@ -41,7 +41,9 @@ export class MatchService {
    * @returns An HTTP request observable that resolves to a list of team standings.
    */
   getPointTable() {
-    return this._httpClient.get(`${environment.API_URL}/matches/point-table`);
+    return this._httpClient.get(
+      `${environment.API_URL}/matches/ict-point-table`
+    );
   }
 
   /**

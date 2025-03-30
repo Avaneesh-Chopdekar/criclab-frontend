@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PointTableComponent } from './point-table.component';
+import { IctPointTableComponent } from './ict-point-table.component';
 
-describe('PointTableComponent', () => {
-  let component: PointTableComponent;
-  let fixture: ComponentFixture<PointTableComponent>;
+describe('IctPointTableComponent', () => {
+  let component: IctPointTableComponent;
+  let fixture: ComponentFixture<IctPointTableComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PointTableComponent]
+      imports: [IctPointTableComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(PointTableComponent);
+    fixture = TestBed.createComponent(IctPointTableComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
